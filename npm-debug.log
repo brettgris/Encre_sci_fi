@@ -1,0 +1,341 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'gulp-kit' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose install initial load of /Users/bgrisinger/Dropbox/GIT/Website-Base/package.json
+5 verbose installManyTop reading scoped package data from /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp/package.json
+6 verbose installManyTop reading scoped package data from /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-concat/package.json
+7 verbose installManyTop reading scoped package data from /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-rename/package.json
+8 verbose installManyTop reading scoped package data from /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-sass/package.json
+9 verbose installManyTop reading scoped package data from /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-uglify/package.json
+10 info package.json gulp-rename@1.2.2 No license field.
+11 verbose readDependencies loading dependencies from /Users/bgrisinger/Dropbox/GIT/Website-Base/package.json
+12 silly cache add args [ 'gulp-kit', null ]
+13 verbose cache add spec gulp-kit
+14 silly cache add parsed spec { raw: 'gulp-kit',
+14 silly cache add   scope: null,
+14 silly cache add   name: 'gulp-kit',
+14 silly cache add   rawSpec: '',
+14 silly cache add   spec: '*',
+14 silly cache add   type: 'range' }
+15 silly addNamed gulp-kit@*
+16 verbose addNamed "*" is a valid semver range for gulp-kit
+17 silly addNameRange { name: 'gulp-kit', range: '*', hasData: false }
+18 silly mapToRegistry name gulp-kit
+19 silly mapToRegistry using default registry
+20 silly mapToRegistry registry https://registry.npmjs.org/
+21 silly mapToRegistry uri https://registry.npmjs.org/gulp-kit
+22 verbose addNameRange registry:https://registry.npmjs.org/gulp-kit not in flight; fetching
+23 verbose request uri https://registry.npmjs.org/gulp-kit
+24 verbose request no auth needed
+25 info attempt registry request try #1 at 12:27:47 PM
+26 verbose request id bda8511d500dcfdc
+27 http request GET https://registry.npmjs.org/gulp-kit
+28 http 200 https://registry.npmjs.org/gulp-kit
+29 silly get cb [ 200,
+29 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 silly get     etag: '"2027PHK6X0GZ23P3AKNZ2TQ8U"',
+29 silly get     'content-type': 'application/json',
+29 silly get     'cache-control': 'max-age=60',
+29 silly get     'content-length': '2750',
+29 silly get     'accept-ranges': 'bytes',
+29 silly get     date: 'Tue, 25 Aug 2015 18:27:48 GMT',
+29 silly get     via: '1.1 varnish',
+29 silly get     age: '0',
+29 silly get     connection: 'keep-alive',
+29 silly get     'x-served-by': 'cache-dfw1834-DFW',
+29 silly get     'x-cache': 'MISS',
+29 silly get     'x-cache-hits': '0',
+29 silly get     'x-timer': 'S1440527268.491199,VS0,VE74',
+29 silly get     vary: 'Accept' } ]
+30 verbose get saving gulp-kit to /Users/bgrisinger/.npm/registry.npmjs.org/gulp-kit/.cache.json
+31 silly addNameRange number 2 { name: 'gulp-kit', range: '*', hasData: true }
+32 silly addNameRange versions [ 'gulp-kit', [ '0.1.0', '0.1.1' ] ]
+33 silly addNamed gulp-kit@0.1.1
+34 verbose addNamed "0.1.1" is a plain semver version for gulp-kit
+35 silly mapToRegistry name gulp-kit
+36 silly mapToRegistry using default registry
+37 silly mapToRegistry registry https://registry.npmjs.org/
+38 silly mapToRegistry uri https://registry.npmjs.org/gulp-kit
+39 verbose addRemoteTarball https://registry.npmjs.org/gulp-kit/-/gulp-kit-0.1.1.tgz not in flight; adding
+40 verbose addRemoteTarball [ 'https://registry.npmjs.org/gulp-kit/-/gulp-kit-0.1.1.tgz',
+40 verbose addRemoteTarball   '1882e16ad176ecab96c5ca947bbf6dd8f93ec5d3' ]
+41 info retry fetch attempt 1 at 12:27:48 PM
+42 info attempt registry request try #1 at 12:27:48 PM
+43 http fetch GET https://registry.npmjs.org/gulp-kit/-/gulp-kit-0.1.1.tgz
+44 http fetch 200 https://registry.npmjs.org/gulp-kit/-/gulp-kit-0.1.1.tgz
+45 silly fetchAndShaCheck shasum 1882e16ad176ecab96c5ca947bbf6dd8f93ec5d3
+46 verbose addTmpTarball /tmp/npm-1572-8caac2f2/registry.npmjs.org/gulp-kit/-/gulp-kit-0.1.1.tgz not in flight; adding
+47 verbose addTmpTarball already have metadata; skipping unpack for gulp-kit@0.1.1
+48 silly cache afterAdd gulp-kit@0.1.1
+49 verbose afterAdd /Users/bgrisinger/.npm/gulp-kit/0.1.1/package/package.json not in flight; writing
+50 verbose afterAdd /Users/bgrisinger/.npm/gulp-kit/0.1.1/package/package.json written
+51 silly install resolved [ { name: 'gulp-kit',
+51 silly install resolved     version: '0.1.1',
+51 silly install resolved     description: 'Integrates node-kit with gulp to compile .kit files',
+51 silly install resolved     main: 'index.js',
+51 silly install resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+51 silly install resolved     repository: { type: 'git', url: 'https://github.com/lukx/gulp-kit' },
+51 silly install resolved     keywords: [ 'gulp', 'codekit', 'html', 'node-kit' ],
+51 silly install resolved     author: { name: 'Lukas Domnick', email: 'lukx@lukx.de' },
+51 silly install resolved     license: 'BSD-2-Clause',
+51 silly install resolved     bugs: { url: 'https://github.com/lukx/gulp-kit/issues' },
+51 silly install resolved     dependencies:
+51 silly install resolved      { 'node-kit': 'git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b',
+51 silly install resolved        through2: '~0.6.1',
+51 silly install resolved        'gulp-util': '~3.0.1' },
+51 silly install resolved     _id: 'gulp-kit@0.1.1',
+51 silly install resolved     dist:
+51 silly install resolved      { shasum: '1882e16ad176ecab96c5ca947bbf6dd8f93ec5d3',
+51 silly install resolved        tarball: 'http://registry.npmjs.org/gulp-kit/-/gulp-kit-0.1.1.tgz' },
+51 silly install resolved     _from: 'gulp-kit@*',
+51 silly install resolved     _npmVersion: '1.3.8',
+51 silly install resolved     _npmUser: { name: 'lukx', email: 'lukx@lukx.de' },
+51 silly install resolved     maintainers: [ [Object] ],
+51 silly install resolved     directories: {},
+51 silly install resolved     _shasum: '1882e16ad176ecab96c5ca947bbf6dd8f93ec5d3',
+51 silly install resolved     _resolved: 'https://registry.npmjs.org/gulp-kit/-/gulp-kit-0.1.1.tgz' } ]
+52 info install gulp-kit@0.1.1 into /Users/bgrisinger/Dropbox/GIT/Website-Base
+53 info installOne gulp-kit@0.1.1
+54 verbose installOne of gulp-kit to /Users/bgrisinger/Dropbox/GIT/Website-Base not in flight; installing
+55 verbose lock using /Users/bgrisinger/.npm/_locks/gulp-kit-8882f14c748fc0f5.lock for /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit
+56 silly install write writing gulp-kit 0.1.1 to /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit
+57 verbose unbuild node_modules/gulp-kit
+58 silly gentlyRm /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit is being purged from base /Users/bgrisinger/Dropbox/GIT/Website-Base
+59 verbose gentlyRm don't care about contents; nuking /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit
+60 verbose tar unpack /Users/bgrisinger/.npm/gulp-kit/0.1.1/package.tgz
+61 verbose tar unpacking to /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit
+62 silly gentlyRm /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit is being purged
+63 verbose gentlyRm don't care about contents; nuking /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit
+64 silly gunzTarPerm modes [ '755', '644' ]
+65 silly gunzTarPerm extractEntry package.json
+66 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+67 silly gunzTarPerm extractEntry .npmignore
+68 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+69 silly gunzTarPerm extractEntry README.md
+70 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+71 silly gunzTarPerm extractEntry index.js
+72 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+73 verbose write writing to /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit/package.json
+74 info preinstall gulp-kit@0.1.1
+75 verbose readDependencies loading dependencies from /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit/package.json
+76 silly prepareForInstallMany adding node-kit@git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b from gulp-kit dependencies
+77 silly prepareForInstallMany adding through2@~0.6.1 from gulp-kit dependencies
+78 silly prepareForInstallMany adding gulp-util@~3.0.1 from gulp-kit dependencies
+79 verbose readDependencies loading dependencies from /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit/package.json
+80 silly cache add args [ 'node-kit@git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b',
+80 silly cache add   null ]
+81 verbose cache add spec node-kit@git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b
+82 silly cache add args [ 'through2@~0.6.1', null ]
+83 verbose cache add spec through2@~0.6.1
+84 silly cache add parsed spec { raw: 'through2@~0.6.1',
+84 silly cache add   scope: null,
+84 silly cache add   name: 'through2',
+84 silly cache add   rawSpec: '~0.6.1',
+84 silly cache add   spec: '>=0.6.1 <0.7.0',
+84 silly cache add   type: 'range' }
+85 silly addNamed through2@>=0.6.1 <0.7.0
+86 verbose addNamed ">=0.6.1 <0.7.0" is a valid semver range for through2
+87 silly addNameRange { name: 'through2', range: '>=0.6.1 <0.7.0', hasData: false }
+88 silly mapToRegistry name through2
+89 silly mapToRegistry using default registry
+90 silly mapToRegistry registry https://registry.npmjs.org/
+91 silly mapToRegistry uri https://registry.npmjs.org/through2
+92 verbose addNameRange registry:https://registry.npmjs.org/through2 not in flight; fetching
+93 silly cache add args [ 'gulp-util@~3.0.1', null ]
+94 verbose cache add spec gulp-util@~3.0.1
+95 silly cache add parsed spec { raw: 'gulp-util@~3.0.1',
+95 silly cache add   scope: null,
+95 silly cache add   name: 'gulp-util',
+95 silly cache add   rawSpec: '~3.0.1',
+95 silly cache add   spec: '>=3.0.1 <3.1.0',
+95 silly cache add   type: 'range' }
+96 silly addNamed gulp-util@>=3.0.1 <3.1.0
+97 verbose addNamed ">=3.0.1 <3.1.0" is a valid semver range for gulp-util
+98 silly addNameRange { name: 'gulp-util', range: '>=3.0.1 <3.1.0', hasData: false }
+99 silly mapToRegistry name gulp-util
+100 silly mapToRegistry using default registry
+101 silly mapToRegistry registry https://registry.npmjs.org/
+102 silly mapToRegistry uri https://registry.npmjs.org/gulp-util
+103 verbose addNameRange registry:https://registry.npmjs.org/gulp-util not in flight; fetching
+104 silly cache add parsed spec { raw: 'node-kit@git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b',
+104 silly cache add   scope: null,
+104 silly cache add   name: 'node-kit',
+104 silly cache add   rawSpec: 'git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b',
+104 silly cache add   spec: 'git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b',
+104 silly cache add   type: 'hosted',
+104 silly cache add   hosted:
+104 silly cache add    { type: 'github',
+104 silly cache add      ssh: 'git@github.com:Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b',
+104 silly cache add      sshUrl: 'git+ssh://git@github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b',
+104 silly cache add      httpsUrl: 'git+https://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b',
+104 silly cache add      gitUrl: 'git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b',
+104 silly cache add      shortcut: 'github:Lukx/node-kit#647e3e28c02a3ea7b8d83913255e37e81575764b',
+104 silly cache add      directUrl: 'https://raw.githubusercontent.com/Lukx/node-kit/647e3e28c02a3ea7b8d83913255e37e81575764b/package.json' } }
+105 verbose addRemoteGit caching git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b
+106 verbose addRemoteGit git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b is a repository hosted by github
+107 silly tryClone cloning git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b via git://github.com/Lukx/node-kit.git#647e3e28c02a3ea7b8d83913255e37e81575764b
+108 verbose tryClone git-github-com-Lukx-node-kit-git-ae6926ab not in flight; caching
+109 verbose request uri https://registry.npmjs.org/through2
+110 verbose request no auth needed
+111 info attempt registry request try #1 at 12:27:48 PM
+112 verbose etag "6NUA3NY9KKIO8E9KW71H4F5T9"
+113 http request GET https://registry.npmjs.org/through2
+114 verbose request uri https://registry.npmjs.org/gulp-util
+115 verbose request no auth needed
+116 info attempt registry request try #1 at 12:27:48 PM
+117 verbose etag "BVXNWBNNV9ROBJUYBH815TGS5"
+118 http request GET https://registry.npmjs.org/gulp-util
+119 info git [ 'clone',
+119 info git   '--template=/Users/bgrisinger/.npm/_git-remotes/_templates',
+119 info git   '--mirror',
+119 info git   'git://github.com/Lukx/node-kit.git',
+119 info git   '/Users/bgrisinger/.npm/_git-remotes/git-github-com-Lukx-node-kit-git-ae6926ab' ]
+120 http 304 https://registry.npmjs.org/through2
+121 silly get cb [ 304,
+121 silly get   { date: 'Tue, 25 Aug 2015 18:27:49 GMT',
+121 silly get     via: '1.1 varnish',
+121 silly get     'cache-control': 'max-age=60',
+121 silly get     etag: '"6NUA3NY9KKIO8E9KW71H4F5T9"',
+121 silly get     age: '7',
+121 silly get     connection: 'keep-alive',
+121 silly get     'x-served-by': 'cache-dfw1827-DFW',
+121 silly get     'x-cache': 'HIT',
+121 silly get     'x-cache-hits': '2',
+121 silly get     'x-timer': 'S1440527269.117434,VS0,VE0',
+121 silly get     vary: 'Accept' } ]
+122 verbose etag https://registry.npmjs.org/through2 from cache
+123 verbose get saving through2 to /Users/bgrisinger/.npm/registry.npmjs.org/through2/.cache.json
+124 http 304 https://registry.npmjs.org/gulp-util
+125 silly get cb [ 304,
+125 silly get   { date: 'Tue, 25 Aug 2015 18:27:49 GMT',
+125 silly get     via: '1.1 varnish',
+125 silly get     'cache-control': 'max-age=60',
+125 silly get     etag: '"BVXNWBNNV9ROBJUYBH815TGS5"',
+125 silly get     age: '1',
+125 silly get     connection: 'keep-alive',
+125 silly get     'x-served-by': 'cache-dfw1835-DFW',
+125 silly get     'x-cache': 'HIT',
+125 silly get     'x-cache-hits': '1',
+125 silly get     'x-timer': 'S1440527269.119096,VS0,VE0',
+125 silly get     vary: 'Accept' } ]
+126 verbose etag https://registry.npmjs.org/gulp-util from cache
+127 verbose get saving gulp-util to /Users/bgrisinger/.npm/registry.npmjs.org/gulp-util/.cache.json
+128 silly addNameRange number 2 { name: 'through2', range: '>=0.6.1 <0.7.0', hasData: true }
+129 silly addNameRange versions [ 'through2',
+129 silly addNameRange   [ '0.0.0',
+129 silly addNameRange     '0.0.1',
+129 silly addNameRange     '0.0.2',
+129 silly addNameRange     '0.0.3',
+129 silly addNameRange     '0.0.4',
+129 silly addNameRange     '0.0.5',
+129 silly addNameRange     '0.1.0',
+129 silly addNameRange     '0.2.0',
+129 silly addNameRange     '0.2.1',
+129 silly addNameRange     '0.2.2',
+129 silly addNameRange     '0.2.3',
+129 silly addNameRange     '0.3.0',
+129 silly addNameRange     '0.4.0',
+129 silly addNameRange     '0.4.1',
+129 silly addNameRange     '1.0.0',
+129 silly addNameRange     '0.4.2',
+129 silly addNameRange     '0.5.0',
+129 silly addNameRange     '0.5.1',
+129 silly addNameRange     '0.6.0',
+129 silly addNameRange     '1.1.0',
+129 silly addNameRange     '0.6.1',
+129 silly addNameRange     '1.1.1',
+129 silly addNameRange     '0.6.2',
+129 silly addNameRange     '0.6.3',
+129 silly addNameRange     '0.6.4',
+129 silly addNameRange     '0.6.5',
+129 silly addNameRange     '2.0.0' ] ]
+130 silly addNamed through2@0.6.5
+131 verbose addNamed "0.6.5" is a plain semver version for through2
+132 silly addNameRange number 2 { name: 'gulp-util', range: '>=3.0.1 <3.1.0', hasData: true }
+133 silly addNameRange versions [ 'gulp-util',
+133 silly addNameRange   [ '0.0.1',
+133 silly addNameRange     '1.0.0',
+133 silly addNameRange     '1.1.0',
+133 silly addNameRange     '1.1.1',
+133 silly addNameRange     '1.2.0',
+133 silly addNameRange     '1.3.0',
+133 silly addNameRange     '2.0.0',
+133 silly addNameRange     '2.1.1',
+133 silly addNameRange     '2.1.2',
+133 silly addNameRange     '2.1.3',
+133 silly addNameRange     '2.1.4',
+133 silly addNameRange     '2.2.0',
+133 silly addNameRange     '2.2.1',
+133 silly addNameRange     '2.2.2',
+133 silly addNameRange     '2.2.3',
+133 silly addNameRange     '2.2.5',
+133 silly addNameRange     '2.2.6',
+133 silly addNameRange     '2.2.7',
+133 silly addNameRange     '2.2.8',
+133 silly addNameRange     '2.2.9',
+133 silly addNameRange     '2.2.10',
+133 silly addNameRange     '2.2.11',
+133 silly addNameRange     '2.2.12',
+133 silly addNameRange     '2.2.13',
+133 silly addNameRange     '2.2.14',
+133 silly addNameRange     '2.2.15',
+133 silly addNameRange     '2.2.16',
+133 silly addNameRange     '2.2.17',
+133 silly addNameRange     '2.2.18',
+133 silly addNameRange     '2.2.19',
+133 silly addNameRange     '2.2.20',
+133 silly addNameRange     '3.0.0',
+133 silly addNameRange     '3.0.1',
+133 silly addNameRange     '3.0.2',
+133 silly addNameRange     '3.0.3',
+133 silly addNameRange     '3.0.4',
+133 silly addNameRange     '3.0.5',
+133 silly addNameRange     '3.0.6' ] ]
+134 silly addNamed gulp-util@3.0.6
+135 verbose addNamed "3.0.6" is a plain semver version for gulp-util
+136 silly cache afterAdd through2@0.6.5
+137 verbose afterAdd /Users/bgrisinger/.npm/through2/0.6.5/package/package.json not in flight; writing
+138 silly cache afterAdd gulp-util@3.0.6
+139 verbose afterAdd /Users/bgrisinger/.npm/gulp-util/3.0.6/package/package.json not in flight; writing
+140 verbose afterAdd /Users/bgrisinger/.npm/through2/0.6.5/package/package.json written
+141 verbose afterAdd /Users/bgrisinger/.npm/gulp-util/3.0.6/package/package.json written
+142 error git clone --template=/Users/bgrisinger/.npm/_git-remotes/_templates --mirror git://github.com/Lukx/node-kit.git /Users/bgrisinger/.npm/_git-remotes/git-github-com-Lukx-node-kit-git-ae6926ab: Cloning into bare repository '/Users/bgrisinger/.npm/_git-remotes/git-github-com-Lukx-node-kit-git-ae6926ab'...
+142 error git clone --template=/Users/bgrisinger/.npm/_git-remotes/_templates --mirror git://github.com/Lukx/node-kit.git /Users/bgrisinger/.npm/_git-remotes/git-github-com-Lukx-node-kit-git-ae6926ab: fatal: read error: Connection reset by peer
+143 verbose about to build /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit
+144 verbose unlock done using /Users/bgrisinger/.npm/_locks/gulp-kit-8882f14c748fc0f5.lock for /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit
+145 verbose stack Error: Command failed: git clone --template=/Users/bgrisinger/.npm/_git-remotes/_templates --mirror git://github.com/Lukx/node-kit.git /Users/bgrisinger/.npm/_git-remotes/git-github-com-Lukx-node-kit-git-ae6926ab
+145 verbose stack Cloning into bare repository '/Users/bgrisinger/.npm/_git-remotes/git-github-com-Lukx-node-kit-git-ae6926ab'...
+145 verbose stack fatal: read error: Connection reset by peer
+145 verbose stack
+145 verbose stack     at ChildProcess.exithandler (child_process.js:751:12)
+145 verbose stack     at ChildProcess.emit (events.js:110:17)
+145 verbose stack     at maybeClose (child_process.js:1015:16)
+145 verbose stack     at Socket.<anonymous> (child_process.js:1183:11)
+145 verbose stack     at Socket.emit (events.js:107:17)
+145 verbose stack     at Pipe.close (net.js:485:12)
+146 verbose cwd /Users/bgrisinger/Dropbox/GIT/Website-Base
+147 error Darwin 13.4.0
+148 error argv "node" "/usr/local/bin/npm" "install" "--save-dev" "gulp-kit"
+149 error node v0.12.7
+150 error npm  v2.11.3
+151 error code 128
+152 error Command failed: git clone --template=/Users/bgrisinger/.npm/_git-remotes/_templates --mirror git://github.com/Lukx/node-kit.git /Users/bgrisinger/.npm/_git-remotes/git-github-com-Lukx-node-kit-git-ae6926ab
+152 error Cloning into bare repository '/Users/bgrisinger/.npm/_git-remotes/git-github-com-Lukx-node-kit-git-ae6926ab'...
+152 error fatal: read error: Connection reset by peer
+153 error If you need help, you may report this error at:
+153 error     <https://github.com/npm/npm/issues>
+154 verbose exit [ 1, true ]
+155 verbose unbuild node_modules/gulp-kit
+156 info preuninstall gulp-kit@0.1.1
+157 info uninstall gulp-kit@0.1.1
+158 verbose unbuild rmStuff gulp-kit@0.1.1 from /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules
+159 info postuninstall gulp-kit@0.1.1
+160 silly gentlyRm /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit is being purged from base /Users/bgrisinger/Dropbox/GIT/Website-Base
+161 verbose gentlyRm don't care about contents; nuking /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit
+162 silly vacuum-fs purging /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules/gulp-kit
+163 silly vacuum-fs quitting because other entries in /Users/bgrisinger/Dropbox/GIT/Website-Base/node_modules
