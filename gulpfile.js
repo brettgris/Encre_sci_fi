@@ -10,7 +10,8 @@ var concat = require('gulp-concat'),
 	gutil = require('gulp-util'),
 	browserSync = require('browser-sync').create(),
 	fileinclude = require('gulp-file-include'),
-	del = require('del');
+	del = require('del'),
+	plumber = require('gulp-plumber');
 
 gulp.task('html', function() {
  	gulp.src('Development/html/*.html')
@@ -21,12 +22,18 @@ gulp.task('html', function() {
 // Compile Our Sass with Compass
 gulp.task('sass', function() {
     return gulp.src('Development/scss/compile/*.scss')
+        .pipe(plumber({
+			errorHandler: function (error) {
+				console.log(error.message);
+				this.emit('end');
+    	}}))
         .pipe(compass({
 	        'sass': 'Development/scss/compile',
 	        'css': 'Production/css',
 	        'images': 'Production/images',
 	        'style': 'compressed'
-        }).on('error', gutil.log))
+        }))
+        .on('error', function(err) {})
         .pipe(gulp.dest('Production/css'));
 });
 
@@ -41,14 +48,6 @@ gulp.task('js', function() {
         .pipe(browserify())
         .pipe(uglify())
         .pipe(gulp.dest('Production/js'));
-});
-
-gulp.task('plugins', function(){
-	return gulp.src('Development/requirements/*.js')
-        .pipe(concat('plugins.min.js'))
-        
-        //.pipe(uglify())
-        .pipe(gulp.dest('Production/js'))
 });
 
 // Watch Files For Changes
