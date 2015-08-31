@@ -11,35 +11,6 @@
 	}]);
 	
 	/**************************
-	  DIRECTIVE FOR LIST
-	**************************/
-/*
-	app.directive('encoreMoviesList', EncoreMovieList); 
-	EncoreMovieList.$inject = ['$location', '$rootScope', '$timeout'];
-	function EncoreMovieList($location, $rootScope, $timeout) {
-		var directive = {
-			restrict: 'E',
-			templateUrl: 'templates/list.html'
-			//controller: EncoreMovieListController,
-			//link: EncoreMovieListLink
-		}
-		return directive;	
-	}
-*/
-	
-
-	
-	/**************************
-	  LINK FOR LIST
-	**************************/
-/*
-	function EncoreMovieListLink($scope, $element, $attrs) {
-		
-	}
-*/
-
-	
-	/**************************
 	  DIRECTIVE FOR SLIDER
 	**************************/
 	app.directive('encoreMoviesSlider', ['$location', '$rootScope', '$timeout', function($location, $rootScope, $timeout) {
@@ -197,25 +168,6 @@
 		}
 		return directive;	
 	}]);
-	
-	
-	
-	/**************************
-	  DIRECTIVE FOR IMAGE
-	**************************/
-/*
-	app.directive('encoreMovieItem', ['$location', '$rootScope', '$timeout', function($location, $rootScope, $timeout) {
-		var directive = {
-			restrict: 'A',
-			link: function EncoreMovieItemLink($scope, $element, $attrs) {
-				$attrs.$observe('original', function(value){
-					$element.lazyload();
-				});
-			}
-		}
-		return directive;	
-	}]);
-*/
 	 
 	
 })();
