@@ -1,0 +1,39 @@
+#footer-actions {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  width: 100%;
+  height: 25px;
+  line-height: 15px;
+  margin: 0;
+  padding: 0;
+}
+#mobile-footer {
+  margin-left: 10px;
+}
+#mobile-footer span {
+  color: rgba(255, 255, 255, 0.7);
+}
+#mobile-footer span:not(:first-child):not(:last-child):before {
+  content: "|";
+}
+#mobile-footer span:last-child {
+  margin-left: 3px;
+}
+#origContainerWrapper {
+  min-height: 100%;
+  position: relative;
+}
+#origContainerWrapper:before {
+  background-size: cover;
+  bottom: 0;
+  content: '';
+  display: block;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.no-background #origContainerWrapper:before {
+  background-image: none;
+}

@@ -1,0 +1,131 @@
+<h2 class="movie-ll-category">{{category.title}}</h2>
+<div class="movie-thumb" ng-repeat="movie in category.Movies" ng-click="clickMovie(movie, $index)">
+	<img data-lazy="{{movie.thumbnailUrl}}" alt="{{movie.title}}" encore-movie-item />
+</div>
+<div starz-details-expander sz-expanded="currentMovie &gt; -1" ng-class="{ 'mobile-expanded':isMobile }">
+    <div class="sz-expander-inner" ng-show="currentMovie &gt; -1">
+        <span class="sz-close" ng-click="closeExpander()"></span>
+        
+        <div class="sz-expander-details clearfix" ng-if="expanderDetails &amp;&amp; expanderDetails.Title">
+            <div class="sz-expander-boxart" ng-if="!isMobile &amp;&amp; !showPreviewVideo()">
+                <img ng-if="expanderDetails.landscapeImage" ng-src="{{expanderDetails.landscapeImage}}" sz-fallback-image="/Content/img/carousel/placeholder.gif" />
+                <div class="instant-preview-fallback-play" ng-if="expanderDetails.fullPreviewUrl">
+                    <label ng-click="eventTrack('Play Preview',expanderDetails); fullscreenVideo($event, false)">
+                        <button class="instant-preview-action for-fullscreen" aria-label="View Full Preview"></button>
+                    </label>
+                </div>
+                <div class="instant-preview-unavailable" ng-if="!isMobile &amp;&amp; !isTablet">No Instant Preview Available</div>
+            </div>
+
+            <div class="sz-expander-boxart" ng-if="!isMobile &amp;&amp; showPreviewVideo()">
+
+                <!-- Preview (actual embed is within as .instant-preview-player-embed) -->
+                <div class="instant-preview">
+                    <div class="instant-preview-inner" ng-class="{
+						'has-preview':showPreviewVideo(),
+						'is-active':previewIsActive,
+						'is-playing':previewIsPlaying,
+						'is-watched':previewIsWatched, 
+						'is-loading':previewIsLoading,
+						'is-muted':previewIsMuted
+					}">
+
+                        <!-- Preview thumbnail -->
+                        <div class="instant-preview-thumb-wrapper" ng-show="expanderDetails.landscapeImage">
+                            <img ng-hide="previewIsPlaying" ng-src="{{expanderDetails.landscapeImage}}" class="instant-preview-thumb" alt="" sz-fallback-image="http://www.starz.com/Content/img/carousel/placeholder.gif" />
+                        </div>
+
+                        <!-- Preview player -->
+                        <div class="instant-preview-player-wrapper">
+                            <div class="instant-preview-player">
+                                <!-- @TODO Check/replace imgUrl -->
+                                <div class="error-message" ng-if="message.length &gt; 0">{{message}}</div>
+                                <div class="loading">
+                                    <div class="loading-content"></div>
+                                </div>
+                                <!-- /.loading -->
+                                <div class="instant-preview-player-embed-wrapper">
+                                    <div ng-if="!isMobile" class="instant-preview-player-embed" id="expander-preview-row-{{rowIndex}}"></div>
+                                </div>
+                                <!-- /.instant-preview-player-embed-wrapper -->
+                            </div>
+                        </div>
+                        
+                        <!-- Mute Button -->
+                        <div class="instant-preview-actions for-during-playback" ng-show="previewIsActive">
+                            <div class="instant-preview-actions-inner">
+                                <span class="instant-preview-action-wrapper">
+                                    <button class="instant-preview-action for-toggle-sound" aria-label="Toggle sound" ng-class="{'is-muted':previewIsMuted}" ng-click="eventTrack('Toggle Mute',expanderDetails); previewToggleMute()"></button>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Replay Overlay -->
+                        <div class="instant-preview-actions for-after-playback" ng-show="previewIsWatched &amp;&amp; !previewIsPlaying &amp;&amp; !previewIsLoading">
+                            <div class="instant-preview-actions-inner">
+                                <span class="instant-preview-action-wrapper">
+                                    <label ng-click="eventTrack('Play Preview',expanderDetails); fullscreenVideo($event, false);">
+                                        <button class="instant-preview-action for-fullscreen" aria-label="View Full Preview"></button>
+                                        <span class="instant-preview-action-label-text">View Full Preview</span>
+                                    </label>
+                                </span>
+                                <span class="instant-preview-action-wrapper">
+                                    <label ng-click="eventTrack('Video Replay',expanderDetails); previewStartVideo()">
+                                        <button class="instant-preview-action for-replay" aria-label="Replay"></button>
+                                        <span class="instant-preview-action-label-text">Replay</span>
+                                    </label>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.instant-preview-inner -->
+                </div>
+                <!-- /.instant-preview -->
+
+            </div>
+            <!-- /.sz-expander-boxart -->
+
+            <div class="sz-expander-desc">
+                <h1 class="sz-desc-title" ng-if="expanderDetails.Title">
+                    <a ng-if="getExpanderPath(expanderDetails)" ng-href="{{getExpanderPath(expanderDetails)}}" ng-click="eventTrack('Expanded View Title', expanderDetails);">{{expanderDetails.Title}}</a>
+                    <span ng-if="!getExpanderPath(expanderDetails)">{{expanderDetails.Title}}</span>
+                </h1>
+                <div class="sz-desc-summary" ng-if="expanderDetails.Description">
+                    {{expanderDetails.Description}}
+                    <span class="sz-summary-detail" ng-if="expanderDetails.Rating">{{expanderDetails.Rating}}</span>
+                    <span class="sz-summary-detail">{{expanderDetails.RunTime}} min</span>
+                    <span class="sz-summary-detail" ng-if="expanderDetails.ReleaseYear">{{expanderDetails.ReleaseYear}}</span>
+                </div>
+                <div class="sz-desc-cast" ng-if="expanderDetails.Cast &amp;&amp; !isMobile">{{expanderDetails.Cast}}</div>
+                <div class="sz-desc-copyright" ng-if="expanderDetails.Copyright != 'Unknown' &amp;&amp; !isMobile">{{expanderDetails.Copyright}}</div>
+                <!-- mobile links -->
+
+                <div class="sz-expander-watch-mobile" ng-if="isMobile">
+                    <div ng-if="expanderDetails.AirDate" class="sz-watch-time-mobile">
+                        <span ng-if="expanderDetails.AirDate">{{getDetailsAirTime(movieList[currentMovie])}}</span>
+                        <span ng-if="expanderDetails.Channel">on {{expanderDetails.Channel}}</span>
+                    </div>
+
+                    <a class="sz-watch-ondemand-mobile" ng-if="expanderDetails.AvailableOndemand &amp;&amp; expanderDetails.StarzPlayURL" ng-href="{{expanderDetails.StarzPlayURL}}"  ng-click="eventTrack('On Demand', expanderDetails);">Available Now <strong>Starz On Demand</strong></a>
+                </div>
+                
+                <div class="sz-expander-watch-video-mobile" ng-if="isMobile">
+                    <a class="sz-watch-preview-mobile" ng-if="expanderDetails.fullPreviewUrl" ng-click="eventTrack('Play Preview',expanderDetails); fullscreenVideo($event, false)">Play Preview</a>
+                    <a class="sz-watch-play-mobile" ng-if="expanderDetails.availableOnStarzPlay &amp;&amp; expanderDetails.playUrl" ng-href="{{expanderDetails.playUrl}}"  ng-click="eventTrack('STARZ Play',expanderDetails);">Watch the Full Movie
+                        <br />
+                        <span>starzplay.com</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sz-expander-watch" ng-if="!isMobile">
+                <div ng-if="expanderDetails.airDate" class="sz-watch-time">
+                    <span ng-if="expanderDetails.airDate">{{getDetailsAirTime(movieList[currentMovie])}}</span>
+                    <span ng-if="expanderDetails.channel">on {{expanderDetails.channel}}</span>
+                </div>
+                <a ng-if="expanderDetails.availableOnDemand &amp;&amp; expanderDetails.playUrl" class="sz-watch-ondemand-status" ng-href="{{expanderDetails.playUrl}}" ng-click="eventTrack('On Demand', expanderDetails);">Available Now <strong>Starz On Demand</strong></a>
+                <a ng-if="expanderDetails.availableOnStarzPlay &amp;&amp; expanderDetails.playUrl" ng-href="{{expanderDetails.playUrl}}" class="sz-watch-play-status" ng-click="eventTrack('STARZ Play',expanderDetails);" target="_blank">Watch the Full Movie on <strong>STARZ Play</strong></a>
+            </div>
+        </div>
+    </div>
+</div>

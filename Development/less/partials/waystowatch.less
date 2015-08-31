@@ -1,0 +1,1417 @@
+/*#region Responsive Utilities ala Bootstrap */
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+  display: none !important;
+}
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-table,
+.visible-xs-table-cell,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-table,
+.visible-sm-table-cell,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-table,
+.visible-md-table-cell,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-table,
+.visible-lg-table-cell,
+.visible-lg-inline-block {
+  display: none !important;
+}
+/*#endregion*/
+.sprite {
+  background: url('@{imgPath}general-sprite.png') no-repeat 0 0;
+  background-size: 250px 900px;
+}
+.carousel-sprite {
+  background: url('@{imgPath}carousel/sz-carousel-sprite.png') no-repeat 0 0;
+  background-size: 300px 1000px;
+}
+.rating-sprite {
+  background: url('@{imgPath}rating-sprite.png') no-repeat 0 0;
+  background-size: 90px 300px;
+}
+.close-x {
+  cursor: pointer;
+  font-size: 0;
+  height: 30px;
+  position: absolute;
+  right: 30px;
+  top: 34px;
+  width: 30px;
+  z-index: 1;
+}
+.close-x:before,
+.close-x:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  height: 4px;
+  background: #cbcbcb;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.close-x:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.close-x:hover::before,
+.close-x:hover::after {
+  background: white;
+}
+.icon-close {
+  cursor: pointer;
+  font-size: 0;
+  height: 30px;
+  width: 30px;
+}
+.icon-close:before,
+.icon-close:after {
+  background: #cbcbcb;
+  content: '';
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 100%;
+}
+.icon-close:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.icon-close:hover::before,
+.icon-close:hover::after {
+  background: white;
+}
+.icon-search {
+  background: url('@{imgPath}general-sprite.png') no-repeat 0 0;
+  background-size: 250px 900px;
+  background-position: -212px -564px;
+  display: block;
+  height: 32px;
+  text-indent: -10000px;
+  width: 21px;
+}
+@media only screen and (min-width: 600px) {
+  .icon-search {
+    background-position: -159px -563px;
+    width: 28px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .icon-search {
+    background-position: -106px -564px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .icon-search {
+    background-position: -53px -562px;
+    width: 32px;
+  }
+}
+@media only screen and (min-width: 1220px) {
+  .icon-search {
+    background-position: 0 -561px;
+    width: 34px;
+  }
+}
+.sz-standard-button {
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 300;
+  margin: 0 5px 10px 0;
+  padding: 7px 10px;
+  text-transform: uppercase;
+}
+.sz-standard-button:last-child {
+  margin-right: 0;
+}
+.sz-standard-button:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-color: transparent;
+  color: black;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 480px) {
+  .sz-standard-button {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0 10px 10px 0;
+    padding: 8px 15px;
+  }
+}
+@media screen and (min-width: 1220px) {
+  .sz-standard-button {
+    font-size: 16px;
+    padding: 16px 30px 14px;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .sz-standard-button {
+    font-size: 22px;
+    padding: 20px 50px 16px;
+  }
+}
+html {
+  overflow-y: scroll;
+}
+/*#region Local variables to help with stuff and things */
+/*#endregion */
+
+/*#region Default styles. Resolution-specific stuff overrides this. */
+
+.mobile-only {
+  display: none;
+}
+.mobile-marker {
+  display: none;
+}
+.rsp-small {
+  display: none;
+}
+.rsp-medium {
+  display: none;
+}
+.rsp-large {
+  display: block;
+}
+.rsp-small-hidden {
+  display: block;
+}
+.rsp-medium-hidden {
+  display: block;
+}
+.rsp-large-hidden {
+  display: none;
+}
+.not-available {
+  color: #839ca7;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: normal;
+}
+.est-notice {
+  color: #839ca7;
+  font-weight: bold;
+  float: right;
+  clear: both;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  font-size: 1.1em;
+}
+#overlay.mediaOvrly.original-ways-to-watch .head-large {
+  display: block;
+  letter-spacing: 1px;
+  padding: 20px 40px;
+  position: relative;
+  background: #0d0f10;
+}
+#overlay.mediaOvrly.original-ways-to-watch .head-large h1 {
+  font-size: 30px;
+  margin: 0 0 6px;
+  max-width: 680px;
+  cursor: default;
+}
+#overlay.mediaOvrly.original-ways-to-watch .head-large .series-title {
+  float: left;
+}
+#overlay.mediaOvrly.original-ways-to-watch .head-large .series-dropdown {
+  display: block;
+  padding-top: 20px;
+  float: right;
+}
+#overlay.mediaOvrly.original-ways-to-watch .head-large .series-single {
+  float: right;
+  display: block;
+  margin-top: 20px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid {
+  display: table;
+  width: 100%;
+  background-color: #0d0f10;
+  border: solid 1px #34393d;
+  /*#region .grid-header */
+
+  /*#endregion */
+
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header {
+  display: block;
+  padding: 20px 0px 30px 1px;
+  position: relative;
+  color: #cfdde3;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col {
+  text-transform: uppercase;
+  display: table-cell;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col.col-title {
+  width: 33%;
+  float: none;
+  padding-left: 20px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col.col-on-air {
+  width: auto;
+  float: none;
+  padding-right: 0px;
+  border-left: solid 1px #2a2e2f;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col.col-on-demand {
+  width: 19%;
+  float: none;
+  padding: 0 10px 0 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col.col-starz-play {
+  width: 13%;
+  float: none;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body {
+  height: auto;
+  display: table;
+  width: 100%;
+  font-size: 1.3em;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes * > .extended-detail {
+  display: none;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode {
+  clear: both;
+  padding: 15px 0 15px 15px;
+  min-height: 15px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode:nth-of-type(odd) {
+  background-color: #0e0f11;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode:nth-of-type(even) {
+  background-color: #15191a;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .on-air-mobile-header,
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .on-air-mobile-no-showings,
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .on-demand-mobile-header,
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .starz-play-mobile-header {
+  display: none;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col {
+  height: auto;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-title {
+  font-weight: 500;
+  height: auto;
+  padding: 0 0 0 20px;
+  margin: 0 0 5px 0;
+  color: white;
+  width: 33%;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-title .episode-thumb {
+  margin: 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-title .episode-thumb img {
+  width: 90%;
+  max-width: 263px;
+  height: auto;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-title .toggle {
+  cursor: pointer;
+  float: left;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-title .toggle:before {
+  content: '';
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: -3px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-title .toggle.collapsed {
+  background: url(@{imgPath}btn/expand-sm.png) no-repeat top;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-title .toggle.expanded {
+  background: url(@{imgPath}btn/expand-sm.png) no-repeat;
+  background-position: 5px -17px;
+  background-position-x: 5px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air {
+  width: auto;
+  padding-right: 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air .on-air-mobile-header,
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air .on-air-mobile-no-showings,
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air .on-demand-mobile-header,
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air .starz-play-mobile-header {
+  display: none;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing:not(.first-airing) {
+  margin-top: 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing:first-child {
+  margin-top: 0px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing:nth-child(3) {
+  margin-top: 25px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing .date-and-time {
+  float: left;
+  color: gray;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing .date-and-time .date,
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing .date-and-time .time {
+  color: white;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing .date-and-time .cal-post-air-time {
+  display: none;
+  color: #cfdde3;
+  margin-left: 5px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing .date-and-time .cal-post-air-time:hover {
+  color: white;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing .service {
+  float: right;
+  color: #78878e;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing .service .cal {
+  color: #cfdde3;
+  margin-left: 5px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing .service .cal:hover {
+  color: white;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-air div.airing .extended-detail {
+  margin-top: 20px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-demand {
+  width: 19%;
+  font-size: .9em;
+  padding-left: 10px;
+  /*.not-available {
+                                        font-size: 12px;
+                                    }*/
+
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-on-demand .available {
+  color: #b9bec2;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-starz-play {
+  width: 13%;
+  text-transform: uppercase;
+  padding-left: 10px;
+  /*.not-available {
+                                        font-size: 12px;
+                                        letter-spacing: normal;
+                                    }*/
+
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-starz-play .play-available:after {
+  cursor: pointer;
+  content: '';
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  padding-left: 5px;
+  background: url(@{imgPath}btn/arrow-watch.png) no-repeat top;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid #waystowatch-content.grid-body .episodes .episode .col.col-starz-play span.emph.not-available {
+  font-size: 12px;
+}
+#overlay.mediaOvrly.original-ways-to-watch .head {
+  display: none;
+}
+/*#endregion */
+
+/*Moved From mixins.less */
+
+@media (max-width: 639px) {
+  .visible-xs {
+    display: block !important;
+  }
+  .visible-xs table {
+    display: table;
+  }
+  .visible-xs tr {
+    display: table-row !important;
+  }
+  .visible-xs th,
+  .visible-xs td {
+    display: table-cell !important;
+  }
+  .visible-xs-block {
+    display: block !important;
+  }
+  .visible-xs-inline {
+    display: inline !important;
+  }
+  .visible-xs-table {
+    display: table !important;
+  }
+  .visible-xs-table-cell {
+    display: table-cell !important;
+  }
+  .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 640px) and (max-width: 921px) {
+  .visible-sm {
+    display: block !important;
+  }
+  .visible-sm table {
+    display: table;
+  }
+  .visible-sm tr {
+    display: table-row !important;
+  }
+  .visible-sm th,
+  .visible-sm td {
+    display: table-cell !important;
+  }
+  .visible-sm-block {
+    display: block !important;
+  }
+  .visible-sm-inline {
+    display: inline !important;
+  }
+  .visible-sm-table {
+    display: table !important;
+  }
+  .visible-sm-table-cell {
+    display: table-cell !important;
+  }
+  .visible-sm-inline-block {
+    display: inline-block !important;
+  }
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 922px) and (max-width: 1023px) {
+  .visible-md {
+    display: block !important;
+  }
+  .visible-md table {
+    display: table;
+  }
+  .visible-md tr {
+    display: table-row !important;
+  }
+  .visible-md th,
+  .visible-md td {
+    display: table-cell !important;
+  }
+  .visible-md-block {
+    display: block !important;
+  }
+  .visible-md-inline {
+    display: inline !important;
+  }
+  .visible-md-table {
+    display: table !important;
+  }
+  .visible-md-table-cell {
+    display: table-cell !important;
+  }
+  .visible-md-inline-block {
+    display: inline-block !important;
+  }
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1024px) {
+  .visible-lg {
+    display: block !important;
+  }
+  .visible-lg table {
+    display: table;
+  }
+  .visible-lg tr {
+    display: table-row !important;
+  }
+  .visible-lg th,
+  .visible-lg td {
+    display: table-cell !important;
+  }
+  .visible-lg-block {
+    display: block !important;
+  }
+  .visible-lg-inline {
+    display: inline !important;
+  }
+  .visible-lg-table {
+    display: table !important;
+  }
+  .visible-lg-table-cell {
+    display: table-cell !important;
+  }
+  .visible-lg-inline-block {
+    display: inline-block !important;
+  }
+  .hidden-lg {
+    display: none !important;
+  }
+}
+.visible-print,
+.visible-print-block,
+.visible-print-inline,
+.visible-print-inline-block {
+  display: none !important;
+}
+@media print {
+  .visible-print {
+    display: block !important;
+  }
+  .visible-print table {
+    display: table;
+  }
+  .visible-print tr {
+    display: table-row !important;
+  }
+  .visible-print th,
+  .visible-print td {
+    display: table-cell !important;
+  }
+  .visible-print-block {
+    display: block !important;
+  }
+  .visible-print-inline {
+    display: inline !important;
+  }
+  .visible-print-inline-block {
+    display: inline-block !important;
+  }
+  .hidden-print {
+    display: none !important;
+  }
+}
+/*End Moved From mixins.less*/
+
+/*#region Desktop-specific */
+
+@media only screen and (min-width: 1024px) {
+  .rsp-small {
+    display: none;
+  }
+  .rsp-medium {
+    display: inline;
+  }
+  .rsp-large {
+    display: block;
+  }
+  .rsp-large-hidden {
+    display: block;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes * > .extended-detail {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-title .episode-thumb {
+    margin-top: 20px;
+  }
+}
+/*#endregion */
+
+/*#region Small display */
+
+@media only screen and (max-width: 640px) {
+  .desktop-only {
+    display: none;
+  }
+  .rsp-small {
+    display: inline;
+  }
+  .rsp-medium {
+    display: none;
+  }
+  .rsp-large {
+    display: none;
+  }
+  .rsp-large-hidden {
+    display: none;
+  }
+  .mobile-only {
+    display: inline-block;
+  }
+  .mobile-hidden {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .head-large {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .head {
+    display: block;
+    padding: 15px 15px 0px 15px;
+    background: #0d0f10;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .head .series-dropdown {
+    padding-top: 20px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid {
+    border: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body {
+    font-size: 1.4em;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-title {
+    width: 100%;
+    padding-left: 0px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-title .toggle {
+    display: inline-block;
+    background: url(@{imgPath}btn/expand-sm.png) no-repeat bottom;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-title .episode-thumb {
+    margin-top: 25px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air {
+    margin-right: 17px;
+    margin-left: 17px;
+    display: block;
+    clear: both;
+    width: 90%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air.mobile-hidden {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .extended-detail .mobile-only {
+    padding-left: 10px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .on-air-mobile-header,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .on-air-mobile-no-showings,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .starz-play-mobile-header {
+    display: inline-block;
+    clear: both;
+    padding-left: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .on-demand-mobile-header {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing {
+    display: none;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: auto;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.mobile-only,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing.mobile-only {
+    display: block;
+    margin-top: 10px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.mobile-hidden,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing.mobile-hidden {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .date-and-time,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing .date-and-time {
+    width: 100%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .date-and-time .date,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing .date-and-time .date,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .date-and-time .time,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing .date-and-time .time {
+    display: inline;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .date-and-time .cal-post-air-time,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing .date-and-time .cal-post-air-time {
+    display: inline;
+    margin-left: 5px;
+    position: relative;
+    top: -2px;
+    float: right;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .service,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing .service {
+    clear: both;
+    float: left;
+    margin-top: 5px;
+    font-size: .9em;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .service .cal,
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing .service .cal {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing:nth-child(3) {
+    margin-top: 0px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing.first-airing {
+    margin-top: 10px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-demand {
+    width: 40%;
+    float: left;
+    font-size: 1em;
+    padding-top: 5px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-demand .extended-detail {
+    width: 50%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-demand .extended-detail .mobile-only {
+    display: inline-block;
+    float: left;
+    margin-left: 17px;
+    margin-bottom: 20px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-demand .extended-detail .available {
+    margin-top: 5px;
+    float: left;
+    display: inline-block;
+    clear: both;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-starz-play {
+    width: 45%;
+    float: right;
+    color: #839ca7;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-starz-play .extended-detail {
+    padding-left: 10px;
+    padding-top: 5px;
+    float: left;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-starz-play .extended-detail .mobile-only {
+    margin-bottom: 20px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-starz-play .extended-detail .mobile-only a {
+    clear: both;
+    float: left;
+    margin-top: 5px;
+    margin-left: 0;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-starz-play .starz-play-mobile-header {
+    display: inline;
+  }
+}
+/*#endregion */
+
+/*#region Medium display */
+
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+  .mobile-only {
+    display: none;
+  }
+  .rsp-large {
+    display: none;
+  }
+  .rsp-large-hidden {
+    display: none;
+  }
+  .rsp-medium {
+    display: inline;
+  }
+  .rsp-small {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .head-large {
+    padding: 15px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col.emph {
+    font-size: 12px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col.col-title {
+    width: 32%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col.col-on-air {
+    width: auto;
+    padding-left: 5px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col.col-on-demand {
+    padding-left: 5px;
+    width: 19%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-header .col.col-starz-play {
+    text-align: right;
+    white-space: nowrap;
+    padding-left: 5px;
+    width: 15%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes {
+    display: table;
+    width: 100%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode {
+    min-height: 22px;
+    display: table-row;
+    width: 100%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col {
+    display: table-cell;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-title {
+    width: 32%;
+    padding: 20px 15px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-title .episode-thumb {
+    margin-top: 25px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air {
+    width: auto;
+    display: table-cell;
+    padding-right: 10px;
+    padding-top: 15px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .mobile-hidden.not-available {
+    display: inline-block;
+    padding-top: 5px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .first-airing {
+    margin-top: 0px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .date-and-time {
+    width: 100%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .date-and-time .cal-post-air-time {
+    display: inline;
+    float: right;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .date-and-time .date {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .date-and-time .time {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .service {
+    float: none;
+    clear: both;
+    padding-top: 5px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing .service .cal {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-air .airing:nth-child(3) {
+    margin-top: 0px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-on-demand {
+    width: 19%;
+    padding-top: 20px;
+    padding-left: 5px;
+    min-height: 39px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .episode-grid .grid-body .episodes .episode .col.col-starz-play {
+    text-align: right;
+    padding-top: 20px;
+    padding-left: 5px;
+    white-space: nowrap;
+    min-height: 39px;
+    width: 15%;
+  }
+}
+/*#endregion*/
+
+/*#region NEW Defaults (Desktop) */
+
+#overlay.mediaOvrly.original-ways-to-watch {
+  background-color: #0d0f10;
+}
+#overlay.mediaOvrly.original-ways-to-watch .head h3.emph strong {
+  color: white;
+}
+#overlay.mediaOvrly.original-ways-to-watch .episode-grid-wrapper {
+  margin: 0 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid {
+  width: 100%;
+  background-color: #0d0f10;
+  border: solid 1px #34393d;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header .col,
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body .col {
+  text-align: left;
+  float: none;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header {
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#2f393c), to(#1c2224));
+  background: -webkit-linear-gradient(top, #2f393c, #1c2224);
+  background: -moz-linear-gradient(top, #2f393c, #1c2224);
+  background: -o-linear-gradient(top, #2f393c, #1c2224);
+  background: linear-gradient(to bottom, #2f393c, #1c2224);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2f393c', endColorstr='#ff1c2224', GradientType=0);
+  background-color: #1c2224;
+  padding: 0px;
+  display: block;
+  width: 100%;
+  /*#region Grid Header */
+
+  /*#endregion */
+
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header {
+  padding: 20px 0px;
+  width: 100%;
+  display: table;
+  min-height: 65px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header th.col {
+  text-align: left;
+  color: #839ca7;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header th.col.col-title {
+  padding-left: 20px;
+  width: 33%;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header th.col.col-on-air {
+  padding-left: 15px;
+  border-left: solid 1px #34393d;
+  width: auto;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header th.col.col-on-demand {
+  padding-left: 15px;
+  border-left: solid 1px #34393d;
+  width: 19%;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header th.col.col-starz-play {
+  padding-left: 10px;
+  border-left: solid 1px #34393d;
+  width: 13%;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body {
+  display: table;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode {
+  display: table;
+  width: 100%;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode.column-header-row {
+  min-height: 65px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode.column-header-row .col {
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#2f393c), to(#1c2224));
+  background: -webkit-linear-gradient(top, #2f393c, #1c2224);
+  background: -moz-linear-gradient(top, #2f393c, #1c2224);
+  background: -o-linear-gradient(top, #2f393c, #1c2224);
+  background: linear-gradient(to bottom, #2f393c, #1c2224);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2f393c', endColorstr='#ff1c2224', GradientType=0);
+  background-color: #1c2224;
+  vertical-align: middle;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode:nth-child(even):nth-child(1) td {
+  border-left: 0;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode:nth-child(even):not(.col-title) td {
+  background-color: #15191a;
+  border-left: solid 1px #364248;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode:nth-child(odd):nth-child(1) td {
+  border-left: 0;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode:nth-child(odd):not(.col-title) td {
+  background-color: #0e0f11;
+  border-left: solid 1px #364248;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col {
+  vertical-align: top;
+  width: auto;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title,
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air,
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-demand,
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-starz-play {
+  padding-top: 15px;
+  width: auto;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title {
+  width: 33%;
+  padding: 15px 0px 15px 15px;
+  font-weight: 500;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title .episode-thumb {
+  display: none;
+  margin: 10px 10px 0px 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title .episode-thumb img {
+  width: 95%;
+  max-width: 263px;
+  height: auto;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title div.toggle {
+  cursor: pointer;
+  float: left;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title div.toggle:before {
+  content: '';
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: -3px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title div.toggle.collapsed {
+  background: url(@{imgPath}btn/expand-sm.png) no-repeat top;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title div.toggle.expanded {
+  background: url(@{imgPath}btn/expand-sm.png) no-repeat;
+  background-position: 5px -17px;
+  background-position-x: 5px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air {
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing:not(.first-airing) {
+  margin-top: 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .tablet-channel {
+  display: none;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.date-and-time a.cal-post-air-time,
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.service a.cal {
+  color: #cfdde3;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.date-and-time a.cal-post-air-time:hover,
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.service a.cal:hover {
+  color: white;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.date-and-time {
+  color: gray;
+  float: left;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.date-and-time .date,
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.date-and-time .time {
+  color: white;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.date-and-time .cal-post-air-time {
+  color: #cfdde3;
+  margin-left: 5px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.date-and-time .cal-post-air-time:hover {
+  color: white;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.service {
+  float: right;
+  color: #78878e;
+  padding-right: 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.service a.cal {
+  margin-left: 5px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .extended-detail {
+  margin-top: 20px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .extended-detail.episode-with-airings {
+  display: none;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-demand {
+  width: 19%;
+  padding-left: 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-demand .available {
+  color: #b9bec2;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-starz-play {
+  width: 13%;
+  padding-left: 10px;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-starz-play .play-available:after {
+  cursor: pointer;
+  content: '';
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  padding-left: 15px;
+  position: relative;
+  top: 2px;
+  background: url(@{imgPath}btn/arrow-watch.png) no-repeat top;
+}
+#overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col .extended-detail {
+  display: none;
+}
+#overlay.mediaOvrly.original-ways-to-watch div.grad-spacer.visible-lg-block.visible-md-block.visible-sm-block {
+  width: auto;
+}
+#overlay.mediaOvrly.original-ways-to-watch div.est-notice.visible-lg-block.visible-md-block.visible-sm-block {
+  margin: 10px 20px;
+  width: auto;
+  text-align: right;
+}
+#overlay > table > tbody > tr:nth-child(2) > td.col.col-title.pull-left > div.episode-thumb.extended-detail {
+  margin-top: 10px;
+}
+/*#endregion*/
+
+/*#region NEW Small */
+
+@media only screen and (max-width: 640px) {
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid {
+    margin: 0;
+    border: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body {
+    font-size: 15px;
+    border-bottom: 0;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body:nth-child(even) tr {
+    background-color: #0e0f11;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body:nth-child(odd) tr {
+    background-color: #15191a;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode {
+    /*border-left: solid 1px #2a2e2f;
+                          border-right: solid 1px #2a2e2f;
+                          border-top: solid 1px #2a2e2f;*/
+    border: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col {
+    display: inline-block;
+    padding: 15px 1px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title {
+    display: block;
+    border-left: none;
+    width: auto;
+    padding: 15px 0 15px 10px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title .toggle {
+    font-size: 12px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title .episode-thumb img {
+    width: 100%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air {
+    display: none;
+    width: auto;
+    border-bottom: solid 1px #2a2e2f;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border-left: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air .extended-detail.episode-with-airings {
+    margin-top: 0px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air .extended-detail.mobile-only.not-available {
+    text-transform: none;
+    color: #b9bec2;
+    margin: 10px 0;
+    display: block;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing {
+    width: 100%;
+    margin: 10px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .first-airing {
+    padding-top: 10px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.date-and-time {
+    font-size: 13px;
+    float: none;
+    font-weight: 500;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.service {
+    float: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing div.service a.cal span {
+    float: right;
+    top: -20px;
+    position: relative;
+    right: 20px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .service-sm .service-name-sm {
+    font-size: 13px;
+    color: #78878e;
+    float: left;
+    clear: both;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .service-sm a.cal {
+    float: right;
+    margin-top: -15px;
+    color: #cfdde3;
+    margin-right: 20px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .service-sm a.cal:hover {
+    color: white;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-demand {
+    display: none;
+    width: 47%;
+    height: 55px;
+    min-height: 50px;
+    padding-bottom: 0px;
+    border-left: none;
+    border-bottom: solid 1px #2a2e2f;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-demand .available {
+    font-size: 13px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-starz-play {
+    display: none;
+    width: 44%;
+    height: 55px;
+    min-height: 50px;
+    padding-bottom: 0px;
+    border-bottom: solid 1px #2a2e2f;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-starz-play .extended-detail .mobile-only a.play-available {
+    display: block;
+    letter-spacing: normal;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-starz-play .extended-detail .mobile-only a.play-available img {
+    float: right;
+    position: relative;
+    right: 5px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-starz-play .extended-detail .mobile-only a.play-available:after {
+    cursor: default;
+    content: '';
+    width: 0px;
+    height: 0px;
+    display: none;
+    padding-left: 0px;
+    background: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch .est-notice {
+    margin-top: 10px;
+  }
+  table.episode-grid thead.grid-header tr.grid-header th.col.col-title {
+    width: 32%;
+  }
+  table.episode-grid thead.grid-header tr.grid-header th.col.col-on-air {
+    width: auto;
+  }
+  table.episode-grid thead.grid-header tr.grid-header th.col.col-on-demand {
+    width: 19%;
+  }
+  table.episode-grid thead.grid-header tr.grid-header th.col.col-starz-play {
+    width: 15%;
+  }
+  table.episode-grid.col-title,
+  table.episode-grid.col-on-air,
+  table.episode-grid.col-on-demand,
+  table.episode-grid.col-starz-play {
+    width: auto;
+  }
+  table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air .extended-detail {
+    margin-top: 20px;
+  }
+  table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air .extended-detail.episode-with-airings {
+    display: block;
+  }
+}
+/*#endregion */
+
+/*#region NEW Tablet */
+
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header th.col.col-title,
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title {
+    width: 32%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header th.col.col-on-air,
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air {
+    width: auto;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header th.col.col-on-demand,
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-demand {
+    width: 19%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid thead.grid-header tr.grid-header th.col.col-starz-play,
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-starz-play {
+    width: 15%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode.column-header-row {
+    min-height: 40px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode.column-header-row .col {
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#2f393c), to(#1c2224));
+    background: -webkit-linear-gradient(top, #2f393c, #1c2224);
+    background: -moz-linear-gradient(top, #2f393c, #1c2224);
+    background: -o-linear-gradient(top, #2f393c, #1c2224);
+    background: linear-gradient(to bottom, #2f393c, #1c2224);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2f393c', endColorstr='#ff1c2224', GradientType=0);
+    font-size: 1.0em;
+    background-color: #1c2224;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 300;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-title {
+    width: 32%;
+    padding-left: 5px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air {
+    width: auto;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing.first-airing {
+    margin-top: 0px;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .service {
+    float: left;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .service-sm .service-name-sm {
+    color: #78878e;
+    float: left;
+    clear: both;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .service-sm a.cal {
+    float: right;
+    margin-top: -15px;
+    color: #cfdde3;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air div.airing .service-sm a.cal:hover {
+    color: white;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air .extended-detail {
+    margin-top: 20px;
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air .extended-detail.episode-with-airings {
+    margin-top: 0;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air .extended-detail.episode-with-airings,
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-air .extended-detail.episode-with-airings div {
+    display: none;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-on-demand {
+    width: 19%;
+  }
+  #overlay.mediaOvrly.original-ways-to-watch table.episode-grid tbody.episodes.grid-body tr.episode td.col.col-starz-play {
+    width: 15%;
+  }
+}
+/*#endregion*/
+

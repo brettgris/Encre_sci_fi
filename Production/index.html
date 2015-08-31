@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="EncoreMovies">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>Website-Base</title>
-<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<title>Sci Fi</title>
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
-	<div class="wrapper">
-		<!---  HEADER --->
-		HEADER
-		
-		<!---  FOOTER --->
-		FOOTER
+<body ng-controller="microMoviesController">
+	<div class="movie-ll-wrapper">
+		<div encore-movies-slider id="{{'movie-slider-'+category.RouteName}}" class="movie-ll-slider" ng-repeat="category in movies"></div>
 	</div>
+	<div id="movie-loader" ng-show="isLoading">
+		<div class="loading-wrapper">
+			<div class="loading"></div>
+			<div class="loading2"></div>
+		</div>
+	</div>
+    <!--CODE-->
+    <script type="text/javascript" src="js/plugins.min.js"></script>
 	<script type="text/javascript" src="js/app.min.js"></script>
 </body>
 </html>
