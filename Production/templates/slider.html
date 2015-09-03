@@ -103,7 +103,7 @@
                 <div class="sz-expander-watch-mobile" ng-if="isMobile">
                     <div ng-if="expanderDetails.AirDateTime" class="sz-watch-time-mobile">
                         <span ng-if="expanderDetails.AirDateTime">{{getDetailsAirTime(currentMovie)}}</span>
-                        <span ng-if="expanderDetails.Channel">on {{expanderDetails.Title}}</span>
+                        <span ng-if="expanderDetails.Channel">on {{expanderDetails.Channel}}</span>
                     </div>
 
                     <a class="sz-watch-ondemand-mobile" ng-if="expanderDetails.AvailableOndemand &amp;&amp; expanderDetails.StarzPlayURL" ng-href="{{expanderDetails.StarzPlayURL}}"  ng-click="eventTrack('On Demand', expanderDetails);">Available Now <strong>Starz On Demand</strong></a>
@@ -120,8 +120,8 @@
 
             <div class="sz-expander-watch" ng-if="!isMobile">
                 <div ng-if="expanderDetails.AirDateTime" class="sz-watch-time">
-                    <span ng-if="expanderDetails.AirDateTime">{{getDetailsAirTime(movieList[currentMovie])}}</span>
-                    <span ng-if="expanderDetails.Channel">on {{expanderDetails.channel}}</span>
+                    <span ng-if="expanderDetails.AirDateTime">{{getDetailsAirTime(expanderDetails)}}</span>
+                    <span ng-if="expanderDetails.Channel">on {{expanderDetails.Channel}}</span>
                 </div>
                 <a ng-if="expanderDetails.AvailableOndemand &amp;&amp; expanderDetails.StarzPlayURL" class="sz-watch-ondemand-status" ng-href="{{expanderDetails.StarzPlayURL}}" ng-click="eventTrack('On Demand', expanderDetails);">Available Now <strong>Starz On Demand</strong></a>
                 <a ng-if="expanderDetails.AvailableOnStarzPlay &amp;&amp; expanderDetails.StarzPlayURL" ng-href="{{expanderDetails.StarzPlayURL}}" class="sz-watch-play-status" ng-click="eventTrack('STARZ Play',expanderDetails);" target="_blank">Watch the Full Movie on <strong>STARZ Play</strong></a>

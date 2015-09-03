@@ -8,7 +8,7 @@
 </head>
 <body ng-controller="microMoviesController">
 	<div class="movie-ll-wrapper">
-		<div encore-movies-slider id="{{'movie-slider-'+category.RouteName}}" class="movie-ll-slider" ng-repeat="category in movies"></div>
+		<div encore-movies-slider id="{{'movie-slider-'+category.RouteName}}" class="movie-ll-slider" ng-repeat="category in movies" index="{{$index}}"></div>
 	</div>
 	<div id="movie-loader" ng-show="isLoading">
 		<div class="loading-wrapper">

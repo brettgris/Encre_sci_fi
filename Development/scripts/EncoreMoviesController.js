@@ -169,7 +169,8 @@
 	        }
 	    
 	        if (!localPath) {
-	            path = window.location.protocol + "//" + window.location.hostname + path;
+	            //path = window.location.protocol + "//" + window.location.hostname + path;
+	            path = 'http://www.starz.com/'+path;
 	        }
 	    
 	        return path;
@@ -260,6 +261,10 @@
 				$scope.expanderDetails = undefined;	
 				$scope.todayMoment = moment.tz(new Date(), TIMEZONE);
                 $scope.currentDate = new Date($scope.todayMoment.format());
+                
+                $attrs.$observe('index', function(value){
+	            	$scope.rowIndex = value; 
+                }); 
 				
 				$element.hide();
 				function waitForDom(){
@@ -447,20 +452,18 @@
 	                    shouldShowPreviewVideo = false;
 	                } else if (!$scope.expanderDetails) {
 	                    shouldShowPreviewVideo = false;
-	                } else if (!$scope.expanderDetails.hasPreview) {
+	                } else if (!$scope.expanderDetails.HasPreview) {
 	                    shouldShowPreviewVideo = false;
-	                } else if ($scope.expanderDetails.type.toLowerCase() === "movie" && !$scope.expanderDetails.instantPreviewUrl) {
+	                } else if ($scope.expanderDetails.Type.toLowerCase() === "movie" && !$scope.expanderDetails.InstantPreviewSmall) {
 	                    shouldShowPreviewVideo = false;
-	                } else if (!$scope.expanderDetails.instantPreviewUrl && !$scope.expanderDetails.fullPreviewUrl) {
+	                } else if (!$scope.expanderDetails.InstantPreviewSmall && !$scope.expanderDetails.PreviewDesktop) {
 	                    shouldShowPreviewVideo = false;
 	                }
 	
 	                return shouldShowPreviewVideo;
 	            }
 	
-	            function getDetailsAirTime() {
-		            console.log( 'AIR TIME: ' );
-		            
+	            function getDetailsAirTime(movie) {	            
 	                var dateString = '',
 	                    dateStart,
 	                    start,
@@ -502,7 +505,7 @@
 	                if ($scope.expanderDetails.type === "movie") {
 	                    if ($scope.expanderDetails.instantPreviewUrl) {
 	                        videoLink = '/video/preview/' + $scope.expanderDetails.id;
-	                    } else if ($scope.expanderDetails.fullPreviewUrl) {
+	                    } else if ($scope.expanderDetails.PreviewDesktop) {
 	                        videoLink = '/video/movie/' + $scope.expanderDetails.id;
 	                    }
 	                }
@@ -511,7 +514,7 @@
 	            }
 	            
 	            function _previewAddPlayer() {
-	                if ($scope.expanderDetails && $scope.expanderDetails.hasPreview && showPreviewVideo()) {
+		            if ($scope.expanderDetails && $scope.expanderDetails.HasPreview && showPreviewVideo()) {
 	                    $timeout(function() {
 	
 	                        var player = jwplayer("expander-preview-row-" + $scope.rowIndex),
@@ -527,7 +530,7 @@
 	                            autostart: true,
 	                            repeat: false,
 	                            controls: false,
-	                            flashplayer: "/Scripts/Vendor/jwplayer/player.swf",
+	                            flashplayer: "http://www.starz.com/Scripts/Vendor/jwplayer/player.swf",
 	                            width: '100%',
 	                            aspectratio: '16:9',
 	                            assetName: 'Feature Video',
@@ -536,9 +539,9 @@
 	                            androidhls: true,
 	                            primary: 'html5',
 	                            playlist: [{
-	                                image: $scope.expanderDetails.landscapeImage,
+	                                image: $scope.expanderDetails.PosterUrl,
 	                                sources: [{
-	                                    file: ($scope.expanderDetails.instantPreviewUrl) ? $scope.expanderDetails.instantPreviewUrl : $scope.expanderDetails.fullPreviewUrl
+	                                    file: ($scope.expanderDetails.InstantPreviewSmall) ? $scope.expanderDetails.InstantPreviewSmall : $scope.expanderDetails.PreviewDesktop
 	                                }]
 	                            }]
 	                        }).onBuffer(function(e) {
